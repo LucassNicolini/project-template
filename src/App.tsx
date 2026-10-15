@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { UnoescBrand } from '@/components/shared/unoesc-brand'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
+import { ProjectTemplateChart } from '@/components/charts/project-template-chart'
 
 /** Área pontilhada que indica onde cada informação deve ficar na página do projeto. */
 function Slot({ label, hint, className }: { label: string; hint?: string; className?: string }) {
@@ -89,39 +90,18 @@ export default function ProjectTemplatePage() {
           </CardContent>
         </Card>
 
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <p className="text-muted-foreground text-sm">Agrupamento dos gráficos abaixo</p>
-          <Slot label="Seletor de período" hint="Dia, semana ou mês" className="w-44 py-1" />
-        </div>
-
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {['Indicador 1', 'Indicador 2', 'Indicador 3', 'Indicador 4'].map((label) => (
             <Card key={label} className="gap-0 py-5">
               <CardContent className="space-y-2">
                 <FieldLabel>{label}</FieldLabel>
-                <Slot label="Valor e unidade" hint="Ex.: total do período" className="py-3" />
+                <Slot label="Valor e unidade" hint="Ex.: total do ano" className="py-3" />
               </CardContent>
             </Card>
           ))}
         </div>
 
-        <div className="grid gap-4 xl:grid-cols-2">
-          {['Gráfico do indicador 1', 'Gráfico do indicador 2'].map((label) => (
-            <Card key={label}>
-              <CardHeader>
-                <CardTitle className="text-base">{label}</CardTitle>
-                <CardDescription>Último valor e data da atualização</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Slot
-                  label="Área do gráfico"
-                  hint="Linha, barra ou área ao longo do tempo"
-                  className="aspect-[16/7] items-center text-center"
-                />
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <ProjectTemplateChart />
 
         <div className="grid gap-4 xl:grid-cols-3">
           <Card className="xl:col-span-2">

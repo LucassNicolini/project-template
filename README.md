@@ -36,10 +36,15 @@ de ambiente. A fonte e as imagens são servidas pelo próprio projeto.
 - `src/components/ui/card.tsx`: mesmos componentes de cartão do Smart Campus.
 - `src/components/shared/unoesc-brand.tsx`: identificação da Unoesc.
 - `src/index.css`: tema e estilos Tailwind CSS 4 copiados do Smart Campus.
+- `src/components/charts/project-template-chart.tsx`: dados de exemplo do gráfico anual;
+  substitua `series` e `startDate` pelos dados do projeto.
+- `src/components/charts/movement-charts.tsx`: gráfico de área com os 12 meses, total anual
+  e seletor de ano. Meses sem registros exibem zero; anos anteriores ao início não aparecem.
+- `src/lib/monthly-movements.ts`: soma mensal e intervalo de anos, iguais aos do Smart Campus.
 - `public/brand/`: imagens oficiais usadas pelo sistema.
 
 As bibliotecas usadas pela tela original foram preservadas: React, React DOM,
-Tailwind CSS, `tw-animate-css`, `clsx` e `tailwind-merge`, com as mesmas versões
+Tailwind CSS, Recharts, Radix Select, Lucide, `tw-animate-css`, `clsx` e `tailwind-merge`, com as mesmas versões
 instaladas no Smart Campus no momento da cópia. Os componentes Card seguem o
 mesmo padrão shadcn/ui. Vite substitui o Next.js neste projeto; a fonte Inter é
 distribuída localmente por `@fontsource-variable/inter`.
